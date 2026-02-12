@@ -1,0 +1,602 @@
+﻿<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Anzum Rahman — Software Engineer</title>
+  <meta name="description" content="Anzum Rahman — Software Engineering, Cybersecurity, IT, Data Analysis portfolio." />
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+
+  <!-- ⭐ Starry Night Background -->
+  <canvas id="starfield" aria-hidden="true"></canvas>
+  <div class="nav">
+    <div class="nav-inner">
+      <div class="brand">
+        <span class="dot"></span>
+        <span>Anzum<span class="brand-soft">.dev</span></span>
+      </div>
+
+      <div class="links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#anecdote">Anecdote</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <div class="controls">
+        <button class="btn" id="themeBtn" type="button" title="Toggle light/dark">🌙 Mode</button>
+        <a class="btn primary" href="#contact">Let’s Talk</a>
+      </div>
+    </div>
+  </div>
+
+  <main class="wrap">
+    <!-- HERO -->
+    <div class="hero" id="top">
+      <div class="card">
+        <div class="card-pad">
+          <div class="hello">
+            <span class="lang-pill" id="helloText">Hello</span>
+            <b>I’m Anzum.</b>
+          </div>
+
+          <h1>Software Engineer<br/>with a security mindset.</h1>
+
+          <p class="subtitle">
+            I build clean, reliable web apps and systems — blending <b>Software Engineering</b>,
+            <b>Cybersecurity</b>, <b>IT</b>, and <b>Data Analysis</b> to ship work that’s both usable and safe.
+          </p>
+
+          <div class="badges">
+            <div class="badge"><span class="miniDot"></span> Software Engineering</div>
+            <div class="badge"><span class="miniDot"></span> Cybersecurity</div>
+            <div class="badge"><span class="miniDot"></span> IT Support</div>
+            <div class="badge"><span class="miniDot"></span> Data Analytics</div>
+          </div>
+
+          <div class="cta-row">
+            <a class="btn primary" href="#projects">View Projects</a>
+            <a class="btn" href="#contact">Contact Me</a>
+
+            <!-- Put your PDF in same folder and name it Anzum_Rahman_Resume.pdf -->
+            <a class="btn" href="./Anzum_Rahman_Resume.pdf" download>⬇️ Download Resume</a>
+
+            <!-- Replace with your Calendly/booking link -->
+            <a class="btn" href="https://calendly.com/anzum2225/30min" target="_blank" rel="noreferrer">📅 Schedule a Meeting</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROFILE -->
+      <div class="profile">
+        <div class="card">
+          <div class="card-pad">
+            <div class="pfp" aria-label="Profile picture">
+              <img src="./anzum-pfp.png" alt="Anzum Rahman" class="pfp-img">
+            </div>
+          </div>
+        </div>
+
+        <div class="status" role="group" aria-label="Availability toggle">
+          <div class="status-left">
+            <div class="status-dot" id="statusDot"></div>
+            <div>
+              <div class="title" id="statusTitle">Available for work</div>
+              <div class="desc" id="statusDesc">Open to opportunities</div>
+            </div>
+          </div>
+
+          <div class="toggle" id="availToggle" role="switch" aria-checked="true" tabindex="0">
+            <div class="knob"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section id="about" class="grid2">
+      <div class="card">
+        <div class="card-pad">
+          <div class="section-title">
+            <h2>About Me</h2>
+            <p>Professional</p>
+          </div>
+          <div class="item item-clear">
+            <div class="desc desc-lg">
+              I’m a New York–based builder who likes shipping things that actually work in the real world.
+              I care about <b>clarity</b>, <b>performance</b>, and <b>security</b>.
+              I’ve worked across support + systems, data-heavy workflows, and web development — so I’m comfortable
+              owning a problem end-to-end: <span class="mono">understand → build → test → deploy → improve</span>.
+            </div>
+            <div class="tags">
+              <span class="tag">JavaScript</span>
+              <span class="tag">Python</span>
+              <span class="tag">SQL</span>
+              <span class="tag">REST APIs</span>
+              <span class="tag">Linux/Windows</span>
+              <span class="tag">Security Basics</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-pad">
+          <div class="section-title">
+            <h2>Quick Links</h2>
+            <p>Make it easy to reach you</p>
+          </div>
+
+          <div class="list">
+            <div class="item">
+              <div class="top">
+                <div class="name">Email</div>
+                <div class="meta"><a href="mailto:anzum2225@gmail.com">anzum2225@gmail.com</a></div>
+              </div>
+              <div class="desc">Best for opportunities, intros, and project conversations.</div>
+            </div>
+
+            <div class="item">
+              <div class="top">
+                <div class="name">LinkedIn</div>
+                <div class="meta">
+                  <a href="https://linkedin.com/in/anzum-rahman/" target="_blank" rel="noreferrer">linkedin.com/in/anzum-rahman</a>
+                </div>
+              </div>
+              <div class="desc">Recruiters + networking.</div>
+            </div>
+
+            <div class="item">
+              <div class="top">
+                <div class="name">GitHub</div>
+                <div class="meta">
+                  <a href="https://github.com/anzumr" target="_blank" rel="noreferrer">github.com/anzumr</a>
+                </div>
+              </div>
+              <div class="desc">Code, projects, and contributions.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="card">
+      <div class="card-pad">
+        <div class="section-title">
+          <h2>Skills</h2>
+          <p>What I’m comfortable with</p>
+        </div>
+
+        <!-- Layout tweak: keep Skills as a 2-col grid, but the content is denser + grouped -->
+        <div class="grid2">
+          <div class="item">
+            <div class="top">
+              <div class="name">Software Engineering</div>
+              <div class="meta">Build + ship</div>
+            </div>
+            <div class="desc">Web development fundamentals and practical app-building with clean UI + solid logic.</div>
+            <div class="tags">
+              <span class="tag">JavaScript</span>
+              <span class="tag">Java</span>
+              <span class="tag">Python</span>
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">Responsive Design</span>
+              <span class="tag">REST APIs</span>
+              <span class="tag">React</span>
+              <span class="tag">SQL</span>
+              <span class="tag">MySQL</span>
+              <span class="tag">Git/GitHub</span>
+              <span class="tag">Jira</span>
+              <span class="tag">VS Code</span>
+              <span class="tag">GitHub Pages</span>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="top">
+              <div class="name">Security & Monitoring</div>
+              <div class="meta">Detect + protect</div>
+            </div>
+            <div class="desc">Security fundamentals and tooling exposure from Per Scholas training + hands-on labs.</div>
+            <div class="tags">
+              <span class="tag">Splunk</span>
+              <span class="tag">Nessus</span>
+              <span class="tag">OPNsense Firewall</span>
+              <span class="tag">IDS/IPS</span>
+              <span class="tag">Endpoint Protection</span>
+              <span class="tag">MFA</span>
+              <span class="tag">Proxy Servers</span>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="top">
+              <div class="name">IT Support & Systems</div>
+              <div class="meta">Troubleshoot + deliver</div>
+            </div>
+            <div class="desc">Hands-on support, imaging, and workstation deployment in a high-urgency environment.</div>
+            <div class="tags">
+              <span class="tag">Windows 10/11</span>
+              <span class="tag">Windows Server (AD/GPO)</span>
+              <span class="tag">Linux</span>
+              <span class="tag">macOS</span>
+              <span class="tag">Imaging/Re-Imaging</span>
+              <span class="tag">BIOS/UEFI</span>
+              <span class="tag">Hardware Diagnostics</span>
+              <span class="tag">PC Assembly/Repair</span>
+              <span class="tag">Workstation Deployment</span>
+              <span class="tag">Peripheral Support</span>
+              <span class="tag">Asset Inventory</span>
+              <span class="tag">ServiceNow</span>
+              <span class="tag">Zendesk</span>
+              <span class="tag">RDP</span>
+              <span class="tag">TeamViewer</span>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="top">
+              <div class="name">Networking, Cloud, Data</div>
+              <div class="meta">Connect + analyze</div>
+            </div>
+            <div class="desc">Core networking foundations, cloud basics, and reporting/analytics workflows.</div>
+            <div class="tags">
+              <span class="tag">TCP/IP</span>
+              <span class="tag">DNS</span>
+              <span class="tag">DHCP</span>
+              <span class="tag">VPNs</span>
+              <span class="tag">VLANs</span>
+              <span class="tag">SSH</span>
+              <span class="tag">Wireshark</span>
+              <span class="tag">Nmap</span>
+              <span class="tag">Cisco IOS</span>
+              <span class="tag">Cisco Packet Tracer</span>
+              <span class="tag">AWS</span>
+              <span class="tag">Azure</span>
+              <span class="tag">GCP</span>
+              <span class="tag">VirtualBox</span>
+              <span class="tag">Hyper-V</span>
+              <span class="tag">Power BI</span>
+              <span class="tag">Excel</span>
+              <span class="tag">Google Workspace</span>
+              <span class="tag">MS Office</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="card">
+      <div class="card-pad">
+        <div class="section-title">
+          <h2>Projects</h2>
+          <p>Focused, readable cards</p>
+        </div>
+
+        <!-- Layout tweak: stack project cards vertically for better readability (no cramped 2-column text). -->
+        <div class="list">
+          <div class="item">
+            <div class="top">
+              <div class="name">Eureka (ErgoRead)</div>
+              <div class="meta">Web App • Nov 2025 – Present</div>
+            </div>
+
+            <div class="desc">
+              Web application that converts PDF and Word documents into an ergonomic reading experience to improve
+              comprehension and accessibility.
+            </div>
+
+            <div class="tags">
+              <span class="tag">JavaScript</span>
+              <span class="tag">UI/UX</span>
+              <span class="tag">Accessibility</span>
+              <span class="tag">Document Parsing</span>
+              <span class="tag">AI Q&A</span>
+            </div>
+
+            <div class="desc" style="margin-top:10px">
+              • Built a browser-based reader with customizable fonts, spacing, and backgrounds<br/>
+              • Implemented hover-based word definitions to reduce reading friction<br/>
+              • Developed a dynamic word bank allowing users to save and review vocabulary<br/>
+              • Integrated AI-generated comprehension questions after each section
+            </div>
+
+            <div class="cta-row">
+              <a class="btn" href="#" target="_blank" rel="noreferrer">Live Demo</a>
+              <a class="btn" href="#" target="_blank" rel="noreferrer">GitHub</a>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="top">
+              <div class="name">Small Business Websites</div>
+              <div class="meta">Freelance • Jun 2023 – Present</div>
+            </div>
+
+            <div class="desc">
+              Designed, built, and deployed responsive websites for small businesses with clean layouts and practical features.
+            </div>
+
+            <div class="tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">GitHub Pages</span>
+              <span class="tag">Custom Domains</span>
+            </div>
+
+            <div class="desc" style="margin-top:10px">
+              • Developed mobile-friendly websites using HTML, CSS, and JavaScript<br/>
+              • Deployed sites via GitHub Pages with custom domains<br/>
+              • Integrated contact forms, maps, menus, and social links
+            </div>
+
+            <div class="cta-row">
+              <a class="btn" href="#" target="_blank" rel="noreferrer">Portfolio Gallery</a>
+              <a class="btn" href="https://github.com/anzumr" target="_blank" rel="noreferrer">GitHub</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+   <!-- EXPERIENCE -->
+<section id="experience" class="card">
+  <div class="card-pad">
+    <div class="section-title">
+      <h2>Experience</h2>
+      <p>Timeline</p>
+    </div>
+
+    <div class="timeline">
+      <div class="t-item">
+        <div class="exp-head">
+          <div class="exp-left">
+            <div class="exp-role">Coding Instructor</div>
+            <div class="exp-company">New York Edge • Queens, NY</div>
+          </div>
+          <div class="exp-right">
+            <span class="exp-date">Mar 2025 – Present</span>
+          </div>
+        </div>
+
+        <ul class="exp-bullets">
+          <li>Taught programming to students with no prior experience by breaking down logic, conditionals, and debugging into simple steps.</li>
+          <li>Designed and delivered interactive projects using Bitsbox and JavaScript, guiding hands-on problem-solving and creative app building.</li>
+        </ul>
+
+        <div class="tags">
+          <span class="tag">JavaScript</span>
+          <span class="tag">Teaching</span>
+          <span class="tag">Debugging</span>
+          <span class="tag">Lesson Design</span>
+        </div>
+      </div>
+
+      <div class="t-item">
+        <div class="exp-head">
+          <div class="exp-left">
+            <div class="exp-role">IT Specialist</div>
+            <div class="exp-company">Jamaica Hospital • Queens, NY</div>
+          </div>
+          <div class="exp-right">
+            <span class="exp-date">Oct 2024 – Jun 2025</span>
+          </div>
+        </div>
+
+        <ul class="exp-bullets">
+          <li>Diagnosed and resolved software, hardware, and network issues for hospital staff (OS errors, app failures, peripherals).</li>
+          <li>Re-imaged and configured PCs, installed critical software, and provisioned new workstations across clinical/admin teams.</li>
+          <li>Delivered responsive help desk support in a high-pressure clinical environment with strong documentation and urgency.</li>
+        </ul>
+
+        <div class="tags">
+          <span class="tag">Windows</span>
+          <span class="tag">Imaging</span>
+          <span class="tag">Troubleshooting</span>
+          <span class="tag">Help Desk</span>
+          <span class="tag">Root Cause</span>
+        </div>
+      </div>
+
+      <div class="t-item">
+        <div class="exp-head">
+          <div class="exp-left">
+            <div class="exp-role">Program Supervisor</div>
+            <div class="exp-company">NYC DYCD • New York, NY</div>
+          </div>
+          <div class="exp-right">
+            <span class="exp-date">Jun 2024 – Oct 2024</span>
+          </div>
+        </div>
+
+        <ul class="exp-bullets">
+          <li>Conducted data management and performance monitoring through site visits and audits, documenting findings for corrective action.</li>
+          <li>Developed performance measurement tools and created evaluations/reports to support decision-making and program improvements.</li>
+          <li>Presented program performance and participant issues to stakeholders with clear written and verbal communication.</li>
+        </ul>
+
+        <div class="tags">
+          <span class="tag">Data Management</span>
+          <span class="tag">Reporting</span>
+          <span class="tag">Audits</span>
+          <span class="tag">Stakeholders</span>
+        </div>
+      </div>
+
+      <div class="t-item">
+        <div class="exp-head">
+          <div class="exp-left">
+            <div class="exp-role">Junior Web Development Intern</div>
+            <div class="exp-company">Crunchbase • New York, NY</div>
+          </div>
+          <div class="exp-right">
+            <span class="exp-date">Jul 2023 – Sep 2023</span>
+          </div>
+        </div>
+
+        <ul class="exp-bullets">
+          <li>Implemented UI improvements using HTML, CSS, and JavaScript to improve responsiveness and user experience.</li>
+          <li>Supported Agile workflows through bug fixes, debugging, QA testing, sprint planning, and code reviews.</li>
+        </ul>
+
+        <div class="tags">
+          <span class="tag">HTML/CSS</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">Agile</span>
+          <span class="tag">QA</span>
+          <span class="tag">Debugging</span>
+        </div>
+      </div>
+
+      <div class="t-item">
+        <div class="exp-head">
+          <div class="exp-left">
+            <div class="exp-role">Data Analysis Intern</div>
+            <div class="exp-company">Changing the Present • New York, NY</div>
+          </div>
+          <div class="exp-right">
+            <span class="exp-date">Jul 2021 – Sep 2021</span>
+          </div>
+        </div>
+
+        <ul class="exp-bullets">
+          <li>Cleaned, validated, and analyzed large datasets in Excel to improve reporting accuracy by 30%.</li>
+          <li>Streamlined data workflows and produced weekly reports, reducing processing time by 20% and improving reliability.</li>
+        </ul>
+
+        <div class="tags">
+          <span class="tag">Excel</span>
+          <span class="tag">Data Cleaning</span>
+          <span class="tag">Reporting</span>
+          <span class="tag">Process Improvement</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    <!-- EDUCATION -->
+    <section id="education" class="card">
+      <div class="card-pad">
+        <div class="section-title">
+          <h2>Education</h2>
+          <p>Degrees + programs</p>
+        </div>
+
+        <!-- Layout tweak: stack education items vertically for cleaner reading -->
+        <div class="list">
+          <div class="item">
+            <div class="top">
+              <div class="name">Per Scholas — Cybersecurity Training</div>
+              <div class="meta">Feb 2025</div>
+            </div>
+            <div class="desc">
+              15-week intensive training in IT security, system administration, scripting, and network protocols.
+              Emphasis on Windows Server, Linux, Bash scripting, SQL Server, Wireshark, VirtualBox, and Cisco IOS.
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="top">
+              <div class="name">B.S. Computer Science — New York City College of Technology</div>
+              <div class="meta">May 2023</div>
+            </div>
+            <div class="desc">Strong foundation in programming, systems, and problem-solving.</div>
+          </div>
+
+          <div class="item">
+            <div class="top">
+              <div class="name">CUNY Web Development Microcredential</div>
+              <div class="meta">Feb 2023</div>
+            </div>
+            <div class="desc">Training in HTML, CSS, and JavaScript fundamentals.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ANECDOTE -->
+    <section id="anecdote" class="card">
+      <div class="card-pad">
+        <div class="section-title">
+          <h2>Personal Anecdote</h2>
+          <p>One human detail</p>
+        </div>
+
+        <div class="item">
+          <div class="desc desc-lg">
+            I like turning “messy” problems into simple systems. That mindset started early — I’d obsess over
+            organizing files, fixing tech for friends, and building small projects just to make life smoother.
+            Now I bring that same energy to software: clean UX, solid logic, and fewer headaches for the user.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="card">
+      <div class="card-pad">
+        <div class="section-title">
+          <h2>Contact Me</h2>
+          <p>Quick message + scheduling</p>
+        </div>
+
+        <div class="grid2">
+          <div class="item">
+            <div class="top">
+              <div class="name">Send a message</div>
+            </div>
+
+            <form id="contactForm" class="contact-form">
+              <input id="name" placeholder="Your name" required>
+              <input id="email" type="email" placeholder="Your email" required>
+              <textarea id="msg" rows="4" placeholder="Message" required></textarea>
+              <button class="btn primary" type="submit">Send</button>
+              <div id="formNote" class="form-note"></div>
+            </form>
+          </div>
+
+          <div class="item">
+            <div class="top">
+              <div class="name">Schedule a meeting</div>
+              <div class="meta">Calendly / appointment link</div>
+            </div>
+            <div class="desc">
+              Prefer a quick call? Book a time that works for you.
+            </div>
+            <div class="cta-row">
+              <a class="btn primary" href="https://calendly.com/anzum2225/30min" target="_blank" rel="noreferrer">📅 Book a time</a>
+              <a class="btn" href="mailto:anzum2225@gmail.com">📨 Email instead</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="year"></span> Anzum Rahman. Built with plain HTML/CSS/JS.</div>
+    </footer>
+  </main>
+
+  <!-- JS -->
+  <script src="./script.js"></script>
+</body>
+</html>
