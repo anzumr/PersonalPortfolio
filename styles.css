@@ -215,7 +215,7 @@ h1{
     radial-gradient(500px 300px at 20% 10%, rgba(124,92,255,0.55), transparent 55%),
     radial-gradient(500px 300px at 80% 20%, rgba(33,212,253,0.42), transparent 60%),
     linear-gradient(135deg, rgba(255,255,255,0.10), rgba(255,255,255,0.02));
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 4 / 5;
   display:grid;
   place-items:center;
   position:relative;
@@ -252,7 +252,7 @@ h1{
   width:100%;
   height:100%;
   object-fit:cover;
-  object-position: center 70%;
+  object-position: center 45%;
   border-radius:28px;
   display:block;
 }
