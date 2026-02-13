@@ -393,6 +393,45 @@ h1{
   background: var(--bad);
   box-shadow: 0 0 0 6px rgba(255,77,79,0.10);
 }
+/* =========================
+   Clean Status Pill
+   ========================= */
+
+.status-pill{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+
+  padding:10px 14px;
+  border-radius:999px;
+
+  border:1px solid var(--line);
+  background:var(--panel);
+
+  font-size:13px;
+  font-weight:600;
+  letter-spacing:-0.01em;
+
+  width:fit-content;
+  margin-top:4px;
+}
+
+.status-pill .status-dot{
+  width:8px;
+  height:8px;
+  border-radius:999px;
+  background:var(--good);
+  box-shadow: 0 0 0 6px rgba(37,211,102,0.12);
+}
+
+.status-pill.not-available .status-dot{
+  background:var(--bad);
+  box-shadow: 0 0 0 6px rgba(255,77,79,0.10);
+}
+
+.status-pill.not-available{
+  opacity:0.85;
+}
 
 /* Sections */
 section{margin-top:18px}

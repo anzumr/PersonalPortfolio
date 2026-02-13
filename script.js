@@ -118,49 +118,35 @@ function rotateHello(){
 rotateHello();
 setInterval(rotateHello, 2200);
 
-// --------- Availability (green/red light) ----------
-const toggle = document.getElementById("availToggle");
+// --------- Availability (controlled in code only) ----------
+
+// ✅ CHANGE THIS ONLY
+const IS_AVAILABLE = true; 
+// true  = Available for work
+// false = Not currently available
+
 const statusDot = document.getElementById("statusDot");
-const statusTitle = document.getElementById("statusTitle");
-const statusDesc = document.getElementById("statusDesc");
+const statusText = document.getElementById("statusText");
+const statusPill = document.getElementById("statusPill");
 
-function setAvailability(isAvailable){
-  if (!toggle || !statusDot || !statusTitle || !statusDesc) return;
+function applyAvailability(){
+  if (!statusDot || !statusText || !statusPill) return;
 
-  if(isAvailable){
-    toggle.setAttribute("aria-checked", "true");
+  if (IS_AVAILABLE){
     statusDot.style.background = "var(--good)";
     statusDot.style.boxShadow = "0 0 0 6px rgba(37,211,102,0.12)";
-    statusTitle.textContent = "Available for work";
-    statusDesc.textContent = "Open to opportunities";
+    statusText.textContent = "Available for work";
+    statusPill.classList.remove("not-available");
   } else {
-    toggle.setAttribute("aria-checked", "false");
     statusDot.style.background = "var(--bad)";
     statusDot.style.boxShadow = "0 0 0 6px rgba(255,77,79,0.10)";
-    statusTitle.textContent = "Not currently available";
-    statusDesc.textContent = "Still happy to connect";
+    statusText.textContent = "Not currently available";
+    statusPill.classList.add("not-available");
   }
-  localStorage.setItem("available", String(isAvailable));
 }
 
-const savedAvail = localStorage.getItem("available");
-setAvailability(savedAvail === null ? true : savedAvail === "true");
+applyAvailability();
 
-function flipAvail(){
-  if (!toggle) return;
-  const cur = toggle.getAttribute("aria-checked") === "true";
-  setAvailability(!cur);
-}
-
-if (toggle){
-  toggle.addEventListener("click", flipAvail);
-  toggle.addEventListener("keydown", (e) => {
-    if(e.key === "Enter" || e.key === " "){
-      e.preventDefault();
-      flipAvail();
-    }
-  });
-}
 
 // --------- Contact form (mailto fallback) ----------
 const form = document.getElementById("contactForm");
