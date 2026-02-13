@@ -1,11 +1,15 @@
 // --------- Theme (light/dark) ----------
 const root = document.documentElement;
 const themeBtn = document.getElementById("themeBtn");
+const themeBtnMobile = document.getElementById("themeBtnMobile"); // ✅ NEW
 
 function setTheme(t){
   root.setAttribute("data-theme", t);
   localStorage.setItem("theme", t);
-  themeBtn.textContent = (t === "light") ? "🌞 Mode" : "🌙 Mode";
+
+  const label = (t === "light") ? "🌞 Mode" : "🌙 Mode";
+  if (themeBtn) themeBtn.textContent = label;
+  if (themeBtnMobile) themeBtnMobile.textContent = label; // ✅ keep mobile button in sync
 
   // Starfield: adjust visibility by theme (stars look best in dark)
   const starCanvas = document.getElementById("starfield");
@@ -20,9 +24,71 @@ if (savedTheme) {
   setTheme(prefersLight ? "light" : "dark");
 }
 
-themeBtn.addEventListener("click", () => {
-  const cur = root.getAttribute("data-theme");
-  setTheme(cur === "light" ? "dark" : "light");
+if (themeBtn){
+  themeBtn.addEventListener("click", () => {
+    const cur = root.getAttribute("data-theme");
+    setTheme(cur === "light" ? "dark" : "light");
+  });
+}
+if (themeBtnMobile){
+  themeBtnMobile.addEventListener("click", () => {
+    const cur = root.getAttribute("data-theme");
+    setTheme(cur === "light" ? "dark" : "light");
+  });
+}
+
+// --------- Mobile Nav Toggle ----------
+const navToggle = document.getElementById("navToggle");
+const mobilePanel = document.getElementById("mobilePanel");
+
+function openMenu(){
+  if (!mobilePanel || !navToggle) return;
+  mobilePanel.classList.add("is-open");
+  navToggle.classList.add("is-open");
+  navToggle.setAttribute("aria-expanded", "true");
+}
+function closeMenu(){
+  if (!mobilePanel || !navToggle) return;
+  mobilePanel.classList.remove("is-open");
+  navToggle.classList.remove("is-open");
+  navToggle.setAttribute("aria-expanded", "false");
+}
+function toggleMenu(){
+  if (!mobilePanel) return;
+  mobilePanel.classList.contains("is-open") ? closeMenu() : openMenu();
+}
+
+if (navToggle){
+  navToggle.addEventListener("click", (e) => {
+    e.stopPropagation();
+    toggleMenu();
+  });
+}
+
+// Close when tapping a mobile link
+if (mobilePanel){
+  mobilePanel.addEventListener("click", (e) => {
+    const link = e.target.closest("a");
+    if (link) closeMenu();
+  });
+}
+
+// Close when tapping outside
+document.addEventListener("click", (e) => {
+  if (!mobilePanel || !navToggle) return;
+  if (!mobilePanel.classList.contains("is-open")) return;
+  if (mobilePanel.contains(e.target) || navToggle.contains(e.target)) return;
+  closeMenu();
+});
+
+// Close on Escape
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeMenu();
+});
+
+// Close if resized to desktop
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 900) closeMenu();
 });
 
 // --------- Hello (languages) ----------
@@ -43,8 +109,10 @@ const hellos = [
 let hiIndex = 0;
 function rotateHello(){
   const h = hellos[hiIndex % hellos.length];
-  helloText.textContent = h.txt;
-  helloText.title = h.lang;
+  if (helloText){
+    helloText.textContent = h.txt;
+    helloText.title = h.lang;
+  }
   hiIndex++;
 }
 rotateHello();
@@ -57,6 +125,8 @@ const statusTitle = document.getElementById("statusTitle");
 const statusDesc = document.getElementById("statusDesc");
 
 function setAvailability(isAvailable){
+  if (!toggle || !statusDot || !statusTitle || !statusDesc) return;
+
   if(isAvailable){
     toggle.setAttribute("aria-checked", "true");
     statusDot.style.background = "var(--good)";
@@ -77,39 +147,45 @@ const savedAvail = localStorage.getItem("available");
 setAvailability(savedAvail === null ? true : savedAvail === "true");
 
 function flipAvail(){
+  if (!toggle) return;
   const cur = toggle.getAttribute("aria-checked") === "true";
   setAvailability(!cur);
 }
 
-toggle.addEventListener("click", flipAvail);
-toggle.addEventListener("keydown", (e) => {
-  if(e.key === "Enter" || e.key === " "){
-    e.preventDefault();
-    flipAvail();
-  }
-});
+if (toggle){
+  toggle.addEventListener("click", flipAvail);
+  toggle.addEventListener("keydown", (e) => {
+    if(e.key === "Enter" || e.key === " "){
+      e.preventDefault();
+      flipAvail();
+    }
+  });
+}
 
 // --------- Contact form (mailto fallback) ----------
 const form = document.getElementById("contactForm");
 const note = document.getElementById("formNote");
 
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const name = document.getElementById("name").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const msg = document.getElementById("msg").value.trim();
+if (form){
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const msg = document.getElementById("msg").value.trim();
 
-  const subject = encodeURIComponent(`Portfolio message from ${name}`);
-  const body = encodeURIComponent(
-    `Name: ${name}\nEmail: ${email}\n\nMessage:\n${msg}`
-  );
+    const subject = encodeURIComponent(`Portfolio message from ${name}`);
+    const body = encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\n\nMessage:\n${msg}`
+    );
 
-  window.location.href = `mailto:anzum2225@gmail.com?subject=${subject}&body=${body}`;
-  note.textContent = "Opening your email client… if nothing happens, copy/paste the message into an email.";
-});
+    window.location.href = `mailto:anzum2225@gmail.com?subject=${subject}&body=${body}`;
+    if (note) note.textContent = "Opening your email client… if nothing happens, copy/paste the message into an email.";
+  });
+}
 
 // --------- Footer year ----------
-document.getElementById("year").textContent = new Date().getFullYear();
+const yearEl = document.getElementById("year");
+if (yearEl) yearEl.textContent = new Date().getFullYear();
 
 /* =========================
    Starry Night Background

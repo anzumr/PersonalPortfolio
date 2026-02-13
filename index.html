@@ -19,14 +19,22 @@
 
   <!-- ⭐ Starry Night Background -->
   <canvas id="starfield" aria-hidden="true"></canvas>
+
+  <!-- ✅ NAV (mobile-ready) -->
   <div class="nav">
     <div class="nav-inner">
       <div class="brand">
         <span class="dot"></span>
-        <span>Anzum<span class="brand-soft">.dev</span></span>
+        <span>Anzum<span class="brand-soft">.codes</span></span>
       </div>
 
-      <div class="links">
+      <!-- ✅ NEW: Mobile hamburger button -->
+      <button class="nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <!-- Desktop links (unchanged for desktop) -->
+      <div class="links" id="desktopLinks">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
@@ -36,9 +44,29 @@
         <a href="#contact">Contact</a>
       </div>
 
-      <div class="controls">
+      <!-- Desktop controls (unchanged for desktop) -->
+      <div class="controls" id="desktopControls">
         <button class="btn" id="themeBtn" type="button" title="Toggle light/dark">🌙 Mode</button>
         <a class="btn primary" href="#contact">Let’s Talk</a>
+      </div>
+
+      <!-- ✅ NEW: Mobile dropdown panel -->
+      <div class="mobile-panel" id="mobilePanel">
+        <div class="mobile-links">
+          <a href="#about" class="mobile-link">About</a>
+          <a href="#skills" class="mobile-link">Skills</a>
+          <a href="#projects" class="mobile-link">Projects</a>
+          <a href="#experience" class="mobile-link">Experience</a>
+          <a href="#education" class="mobile-link">Education</a>
+          <a href="#anecdote" class="mobile-link">Anecdote</a>
+          <a href="#contact" class="mobile-link">Contact</a>
+        </div>
+
+        <div class="mobile-controls">
+          <!-- ✅ NEW: Mobile theme button (your JS will forward this to #themeBtn) -->
+          <button class="btn" id="themeBtnMobile" type="button" title="Toggle light/dark">🌙 Mode</button>
+          <a class="btn primary" href="#contact">Let’s Talk</a>
+        </div>
       </div>
     </div>
   </div>
@@ -180,7 +208,6 @@
           <p>What I’m comfortable with</p>
         </div>
 
-        <!-- Layout tweak: keep Skills as a 2-col grid, but the content is denser + grouped -->
         <div class="grid2">
           <div class="item">
             <div class="top">
@@ -287,7 +314,6 @@
           <h2>Projects</h2>
         </div>
 
-        <!-- Layout tweak: stack project cards vertically for better readability (no cramped 2-column text). -->
         <div class="list">
           <div class="item">
             <div class="top">
@@ -354,142 +380,141 @@
       </div>
     </section>
 
-   <!-- EXPERIENCE -->
-<section id="experience" class="card">
-  <div class="card-pad">
-    <div class="section-title">
-      <h2>Experience</h2>
-      <p>Timeline</p>
-    </div>
-
-    <div class="timeline">
-      <div class="t-item">
-        <div class="exp-head">
-          <div class="exp-left">
-            <div class="exp-role">Coding Instructor</div>
-            <div class="exp-company">New York Edge • Queens, NY</div>
-          </div>
-          <div class="exp-right">
-            <span class="exp-date">Mar 2025 – Present</span>
-          </div>
+    <!-- EXPERIENCE -->
+    <section id="experience" class="card">
+      <div class="card-pad">
+        <div class="section-title">
+          <h2>Experience</h2>
+          <p>Timeline</p>
         </div>
 
-        <ul class="exp-bullets">
-          <li>Taught programming to students with no prior experience by breaking down logic, conditionals, and debugging into simple steps.</li>
-          <li>Designed and delivered interactive projects using Bitsbox and JavaScript, guiding hands-on problem-solving and creative app building.</li>
-        </ul>
+        <div class="timeline">
+          <div class="t-item">
+            <div class="exp-head">
+              <div class="exp-left">
+                <div class="exp-role">Coding Instructor</div>
+                <div class="exp-company">New York Edge • Queens, NY</div>
+              </div>
+              <div class="exp-right">
+                <span class="exp-date">Mar 2025 – Present</span>
+              </div>
+            </div>
 
-        <div class="tags">
-          <span class="tag">JavaScript</span>
-          <span class="tag">Teaching</span>
-          <span class="tag">Debugging</span>
-          <span class="tag">Lesson Design</span>
+            <ul class="exp-bullets">
+              <li>Taught programming to students with no prior experience by breaking down logic, conditionals, and debugging into simple steps.</li>
+              <li>Designed and delivered interactive projects using Bitsbox and JavaScript, guiding hands-on problem-solving and creative app building.</li>
+            </ul>
+
+            <div class="tags">
+              <span class="tag">JavaScript</span>
+              <span class="tag">Teaching</span>
+              <span class="tag">Debugging</span>
+              <span class="tag">Lesson Design</span>
+            </div>
+          </div>
+
+          <div class="t-item">
+            <div class="exp-head">
+              <div class="exp-left">
+                <div class="exp-role">IT Specialist</div>
+                <div class="exp-company">Jamaica Hospital • Queens, NY</div>
+              </div>
+              <div class="exp-right">
+                <span class="exp-date">Oct 2024 – Jun 2025</span>
+              </div>
+            </div>
+
+            <ul class="exp-bullets">
+              <li>Diagnosed and resolved software, hardware, and network issues for hospital staff (OS errors, app failures, peripherals).</li>
+              <li>Re-imaged and configured PCs, installed critical software, and provisioned new workstations across clinical/admin teams.</li>
+              <li>Delivered responsive help desk support in a high-pressure clinical environment with strong documentation and urgency.</li>
+            </ul>
+
+            <div class="tags">
+              <span class="tag">Windows</span>
+              <span class="tag">Imaging</span>
+              <span class="tag">Troubleshooting</span>
+              <span class="tag">Help Desk</span>
+              <span class="tag">Root Cause</span>
+            </div>
+          </div>
+
+          <div class="t-item">
+            <div class="exp-head">
+              <div class="exp-left">
+                <div class="exp-role">Program Supervisor</div>
+                <div class="exp-company">NYC DYCD • New York, NY</div>
+              </div>
+              <div class="exp-right">
+                <span class="exp-date">Jun 2024 – Oct 2024</span>
+              </div>
+            </div>
+
+            <ul class="exp-bullets">
+              <li>Conducted data management and performance monitoring through site visits and audits, documenting findings for corrective action.</li>
+              <li>Developed performance measurement tools and created evaluations/reports to support decision-making and program improvements.</li>
+              <li>Presented program performance and participant issues to stakeholders with clear written and verbal communication.</li>
+            </ul>
+
+            <div class="tags">
+              <span class="tag">Data Management</span>
+              <span class="tag">Reporting</span>
+              <span class="tag">Audits</span>
+              <span class="tag">Stakeholders</span>
+            </div>
+          </div>
+
+          <div class="t-item">
+            <div class="exp-head">
+              <div class="exp-left">
+                <div class="exp-role">Junior Web Development Intern</div>
+                <div class="exp-company">Crunchbase • New York, NY</div>
+              </div>
+              <div class="exp-right">
+                <span class="exp-date">Jul 2023 – Sep 2023</span>
+              </div>
+            </div>
+
+            <ul class="exp-bullets">
+              <li>Implemented UI improvements using HTML, CSS, and JavaScript to improve responsiveness and user experience.</li>
+              <li>Supported Agile workflows through bug fixes, debugging, QA testing, sprint planning, and code reviews.</li>
+            </ul>
+
+            <div class="tags">
+              <span class="tag">HTML/CSS</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">Agile</span>
+              <span class="tag">QA</span>
+              <span class="tag">Debugging</span>
+            </div>
+          </div>
+
+          <div class="t-item">
+            <div class="exp-head">
+              <div class="exp-left">
+                <div class="exp-role">Data Analysis Intern</div>
+                <div class="exp-company">Changing the Present • New York, NY</div>
+              </div>
+              <div class="exp-right">
+                <span class="exp-date">Jul 2021 – Sep 2021</span>
+              </div>
+            </div>
+
+            <ul class="exp-bullets">
+              <li>Cleaned, validated, and analyzed large datasets in Excel to improve reporting accuracy by 30%.</li>
+              <li>Streamlined data workflows and produced weekly reports, reducing processing time by 20% and improving reliability.</li>
+            </ul>
+
+            <div class="tags">
+              <span class="tag">Excel</span>
+              <span class="tag">Data Cleaning</span>
+              <span class="tag">Reporting</span>
+              <span class="tag">Process Improvement</span>
+            </div>
+          </div>
         </div>
       </div>
-
-      <div class="t-item">
-        <div class="exp-head">
-          <div class="exp-left">
-            <div class="exp-role">IT Specialist</div>
-            <div class="exp-company">Jamaica Hospital • Queens, NY</div>
-          </div>
-          <div class="exp-right">
-            <span class="exp-date">Oct 2024 – Jun 2025</span>
-          </div>
-        </div>
-
-        <ul class="exp-bullets">
-          <li>Diagnosed and resolved software, hardware, and network issues for hospital staff (OS errors, app failures, peripherals).</li>
-          <li>Re-imaged and configured PCs, installed critical software, and provisioned new workstations across clinical/admin teams.</li>
-          <li>Delivered responsive help desk support in a high-pressure clinical environment with strong documentation and urgency.</li>
-        </ul>
-
-        <div class="tags">
-          <span class="tag">Windows</span>
-          <span class="tag">Imaging</span>
-          <span class="tag">Troubleshooting</span>
-          <span class="tag">Help Desk</span>
-          <span class="tag">Root Cause</span>
-        </div>
-      </div>
-
-      <div class="t-item">
-        <div class="exp-head">
-          <div class="exp-left">
-            <div class="exp-role">Program Supervisor</div>
-            <div class="exp-company">NYC DYCD • New York, NY</div>
-          </div>
-          <div class="exp-right">
-            <span class="exp-date">Jun 2024 – Oct 2024</span>
-          </div>
-        </div>
-
-        <ul class="exp-bullets">
-          <li>Conducted data management and performance monitoring through site visits and audits, documenting findings for corrective action.</li>
-          <li>Developed performance measurement tools and created evaluations/reports to support decision-making and program improvements.</li>
-          <li>Presented program performance and participant issues to stakeholders with clear written and verbal communication.</li>
-        </ul>
-
-        <div class="tags">
-          <span class="tag">Data Management</span>
-          <span class="tag">Reporting</span>
-          <span class="tag">Audits</span>
-          <span class="tag">Stakeholders</span>
-        </div>
-      </div>
-
-      <div class="t-item">
-        <div class="exp-head">
-          <div class="exp-left">
-            <div class="exp-role">Junior Web Development Intern</div>
-            <div class="exp-company">Crunchbase • New York, NY</div>
-          </div>
-          <div class="exp-right">
-            <span class="exp-date">Jul 2023 – Sep 2023</span>
-          </div>
-        </div>
-
-        <ul class="exp-bullets">
-          <li>Implemented UI improvements using HTML, CSS, and JavaScript to improve responsiveness and user experience.</li>
-          <li>Supported Agile workflows through bug fixes, debugging, QA testing, sprint planning, and code reviews.</li>
-        </ul>
-
-        <div class="tags">
-          <span class="tag">HTML/CSS</span>
-          <span class="tag">JavaScript</span>
-          <span class="tag">Agile</span>
-          <span class="tag">QA</span>
-          <span class="tag">Debugging</span>
-        </div>
-      </div>
-
-      <div class="t-item">
-        <div class="exp-head">
-          <div class="exp-left">
-            <div class="exp-role">Data Analysis Intern</div>
-            <div class="exp-company">Changing the Present • New York, NY</div>
-          </div>
-          <div class="exp-right">
-            <span class="exp-date">Jul 2021 – Sep 2021</span>
-          </div>
-        </div>
-
-        <ul class="exp-bullets">
-          <li>Cleaned, validated, and analyzed large datasets in Excel to improve reporting accuracy by 30%.</li>
-          <li>Streamlined data workflows and produced weekly reports, reducing processing time by 20% and improving reliability.</li>
-        </ul>
-
-        <div class="tags">
-          <span class="tag">Excel</span>
-          <span class="tag">Data Cleaning</span>
-          <span class="tag">Reporting</span>
-          <span class="tag">Process Improvement</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
+    </section>
 
     <!-- EDUCATION -->
     <section id="education" class="card">
@@ -499,7 +524,6 @@
           <p>Degrees + programs</p>
         </div>
 
-        <!-- Layout tweak: stack education items vertically for cleaner reading -->
         <div class="list">
           <div class="item">
             <div class="top">
